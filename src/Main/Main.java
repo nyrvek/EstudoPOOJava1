@@ -2,7 +2,9 @@ package Main;
 
 import Personagens.Heroi;
 import Personagens.Inimigo;
+import RPG.Batalha;
 
+import java.io.LineNumberInputStream;
 import java.util.Scanner;
 
 public class Main {
@@ -72,9 +74,24 @@ public class Main {
         }
 
         // Criando um objeto do tipo "Heroi" com as informações coletadas do jogador
-        var heroi = new Heroi(nome, 200, true, 30, arma, danoArma);
-        heroi.ExibirPersonagem(); // Chamando o método "ExibirPersonagem" do objeto "heroi" para mostrar as informações na tela
+        var heroi = new Heroi();
+        heroi.setNome(nome);
+        heroi.setVida(200);
+        heroi.setEstaVivo(true);
+        heroi.setAtaque(30);
+        heroi.setArma(arma);
+        heroi.setDanoArma(danoArma);
 
-        var inimigo = new Inimigo("Marcos",250,true,50,"Besta",50);
+        heroi.exibirPersonagem(); // Chamando o método "ExibirPersonagem" do objeto "heroi" para mostrar as informações na tela
+
+        var lobo = new Inimigo();
+        lobo.setNome("Lobo");
+        lobo.setAtaque(35);
+        lobo.setVida(300);
+        lobo.setEstaVivo(true);
+
+        var batalha = new Batalha();
+        batalha.Batalha(heroi,lobo);
+        heroi.exibirPersonagem();
     }
 }
